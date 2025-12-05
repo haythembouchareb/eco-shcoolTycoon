@@ -14,3 +14,50 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# eco-shcoolTycoon
+
+**eco-shcoolTycoon** est une application web de simulation/gestion d'école écologique.
+*Description courte : Gérez une école en intégrant des pratiques durables et écologiques, tout en optimisant le budget et les ressources.*
+
+## 🛠️ Technologies utilisées
+
+* Frontend : **React** (JavaScript)
+* Outils de build : **Vite**
+* Markup : **HTML, CSS**
+* Linter : **ESLint**
+
+## Structure du projet
+
+```
+/ (racine)
+  ├── public/         # Ressources publiques (images, index.html, etc.)
+  ├── src/            # Code source (composants React, styles, logique)
+  ├── .env            # Variables d'environnement (si nécessaire)
+  ├── .gitignore
+  ├── package.json
+  ├── package-lock.json
+  └── vite.config.js  # Configuration Vite
+```
+
+## Installation et lancement
+
+```bash
+# Cloner le dépôt
+git clone https://github.com/cherifaBenGhorbel/eco-shcoolTycoon.git
+cd eco-shcoolTycoon
+
+# Installer les dépendances
+npm install
+
+# Démarrer le serveur de développement
+npm run dev
+
+# (Ou build pour la production)
+npm run build
+```
+
+Si des variables d'environnement sont utilisées (présence de `.env`), indiquez-les ici avec leurs valeurs types.
+
+## Utilisation de l'application
+
+* Ouvrir le navigateur sur [http:
