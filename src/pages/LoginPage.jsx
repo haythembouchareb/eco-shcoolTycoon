@@ -144,12 +144,18 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#0b3d20] overflow-hidden relative font-determination">
       <ChalkParticles count={10} />
-      <button
-        onClick={() => setView("intro")}
-        className="absolute top-8 left-8 text-[#d4a373] hover:text-[#e6c08e] font-bold flex items-center gap-3 z-20"
-      >
-        BACK
-      </button>
+    <button
+      onClick={() => setView("intro")}
+      className="absolute top-6 left-6 z-20 flex items-center gap-2 px-5 py-3 
+                bg-[#0f5529]/80 hover:bg-[#1a4d2e] 
+                border-4 border-[#d4a373] hover:border-[#e6c08e]
+                rounded-lg shadow-lg
+                transition-all duration-200 hover:scale-105"
+    >
+      <span className="text-[#d4a373] hover:text-[#e6c08e] font-bold text-lg tracking-wider">
+        ← BACK
+      </span>
+    </button>
 
       <div className="z-10 w-full max-w-md px-6">
         <div className="bg-[#e8e4d0] rounded-3xl border-8 border-[#8b7b5e] shadow-2xl p-10">

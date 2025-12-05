@@ -5,7 +5,7 @@ const api = axios.create({
   timeout: 10000,
 });
 
-// JWT Interceptor — still works perfectly
+// JWT Interceptor
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {
@@ -13,5 +13,6 @@ api.interceptors.request.use((config) => {
   }
   return config;
 });
+
 
 export default api;

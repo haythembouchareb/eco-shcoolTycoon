@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import api from "../api/client";
 
 const AuthContext = createContext();
@@ -11,8 +11,6 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      // Optional: validate token with backend
-      // For now, just set as logged in
       setUser({ token });
     }
     setLoading(false);
@@ -25,16 +23,28 @@ export function AuthProvider({ children }) {
     return data;
   };
 
-  const register = async (firstname, lastname, email, password) => {
-    const { data } = await api.post("/auth/register", {
+const register = async (firstname, lastname, email, password) => {
+    // 1. Register
+    await api.post("/auth/register", {
       firstname: firstname.trim(),
       lastname: lastname.trim(),
       email: email.trim(),
       password,
     });
-    // Auto-login after register
+
+    // 2. Auto-login
     await login(email, password);
-    return data;
+
+    // 3. SET ROLE TO INITIAL — AUTOMATICALLY
+    try {
+      await api.patch("/user/current/setrole", {
+        role: "INITIAL",
+        isProprietary: true // or false — doesn't matter at start
+      });
+      console.log("Role set to INITIAL");
+    } catch (err) {
+      console.warn("Could not set initial role — will be set later");
+    }
   };
 
   const logout = () => {
